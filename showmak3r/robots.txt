@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nstar1125.github.io/showmak3r/sitemap.xml

@@ -102,24 +102,21 @@
   </div>
 </section>
 
-<!-- <section class="hero teaser">
+<section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
+      <!-- <video id="3Dlocator" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/align_vis.mp4" type="video/mp4">
+      </video> -->
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
+        Teaser coming soon!
       </h2>
     </div>
   </div>
 </section>
 
 
-<section class="hero is-light is-small">
+<!-- <section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
@@ -179,9 +176,9 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
+
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
@@ -191,7 +188,7 @@
             (1) actors occluding with each other and having diverse facial expressions, 
             (2) cluttered stages, and 
             (3) small baseline views or sudden shot changes. 
-            To address these issues, we present ShowMak3r, 
+            To address these issues, we present <strong>ShowMak3r</strong>, 
             a comprehensive reconstruction pipeline that allows the editing of scenes like how video clips are made in a production control room. 
             In ShowMak3r, a 3DLocator module locates recovered actors on the stage using depth prior, 
             and estimates unseen human poses via interpolation. 
@@ -201,70 +198,153 @@
             We also demonstrate that ShowMak3r enables interesting applications such as synthetic shot-making, actor relocation, insertion, deletion, and pose manipulation.
           </p>
         </div>
+
       </div>
     </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Paper video. -->
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+
+        <h2 class="title is-3">Method</h2>
+        <img src="./static/images/pipeline.jpg"
+                 class="pipeline-image"
+                 alt="Pipeline image."/>
+        <div class="content has-text-justified">
+          Overview of our <strong>ShowMak3r</strong> pipeline. Given a TV show video clip,  
+          we perform dense reconstruction of the stage, locate SMPL models to the stage with 3DLocator, 
+          associate SMPL models across shots to track actors with ShotMatcher, and recover the detailed appearance of the actors with Face-Fitting network. 
+          3D Gaussians of the stage and the actors are rendered to produce novel frames.
+        </div>
+
+        <div class="columns is-centered">
+          <div class="column">
+            <div class="content">
+              <h3 class="title is-4">3DLocator</h3>
+              <video id="3Dlocator" autoplay muted loop playsinline height="100%">
+                <source src="./static/videos/align_vis.mp4" type="video/mp4">
+              </video>
+              <div class="content has-text-justified">
+                <p>
+                  3DLocator accurately aligns actors on the stage, and even aims to solve unseen poses due to occlusions.
+                </p>
+              </div>
+            </div>
+          </div>
+    
+          <div class="column">
+            <h3 class="title is-4">ShotMatcher</h3>
+            <div class="columns is-centered">
+              <div class="column content">
+                <video id="ShotMatcher" autoplay muted loop playsinline height="100%">
+                  <source src="./static/videos/match_vis.mp4" type="video/mp4">
+                </video>
+                <div class="content has-text-justified">
+                  <p>  
+                    ShotMatcher enables continuous tracking of actors under shot-change. 
+                    It associates actors even when they are not visible in certain shots.
+                  </p>
+                </div>
+              </div>
+    
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <h3 class="title is-4">Face-Fitting Network</h3>
+          <div class="content has-text-justified">
+            <p>
+              In TV shows, recovering detailed facial expressions are essential for delivering emotion and enhancing realism. 
+              We introduce an implicit function-based residual appearance fitting scheme by utilizing a Gaussian deformation network. 
+              Instead of moving the Gaussians, we refine colors and opacity to fit the details.
+            </p>
+          </div>
+          <img src="./static/images/face-fitting.jpg"
+                 class="face-fitting-image"
+                 alt="Face-Fitting image."/>
+        </div>
+        
+
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section">
   <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
 
-    <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <!-- <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
+        <h2 class="title is-3">Results</h2>
+        <div class="column content">
+          <video id="tbbt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/result_tbbt.mp4" type="video/mp4">
           </video>
+          <p> The Big Bang Theory (2007) </p>
         </div>
-      </div> -->
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <!-- <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
+        <div class="column content">
+          <video id="elr" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/result_elr.mp4" type="video/mp4">
+          </video>
+          <p> Everybody Loves Raymond (1996) </p>
+        </div>
+        <div class="column content">
+          <video id="friends" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/result_friends.mp4" type="video/mp4">
+          </video>
+          <p> Friends (1994) </p>
+        </div>
+        <div class="column content">
+          <video id="taahm" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/result_taahm.mp4" type="video/mp4">
+          </video>
+          <p> Two and a Half Men (2003) </p>
         </div>
       </div>
-    </div> -->
-    <!--/ Matting. -->
+    </div>
+  </div>
+</section>
+        
 
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <!-- <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2> -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full-width">
+        <h2 class="title is-3">Applications</h2>
+        <div style="display: flex; flex-wrap: wrap; column-gap: 20px; justify-content: center;">
+          <div class="column content" style="flex: 1 1 45%; max-width: 45%;">
+            <video id="tbbt" autoplay controls muted loop playsinline width="100%">
+              <source src="./static/videos/app_delete.mp4" type="video/mp4">
+            </video>
+            <p>Actor Deletion</p>
+          </div>
+          <div class="column content" style="flex: 1 1 45%; max-width: 45%;">
+            <video id="elr" autoplay controls muted loop playsinline width="100%">
+              <source src="./static/videos/app_reloc.mp4" type="video/mp4">
+            </video>
+            <p>Actor Relocation</p>
+          </div>
+          <div class="column content" style="flex: 1 1 45%; max-width: 45%;">
+            <video id="friends" autoplay controls muted loop playsinline width="100%">
+              <source src="./static/videos/app_insert.mp4" type="video/mp4">
+            </video>
+            <p>Actor Insertion</p>
+          </div>
+          <div class="column content" style="flex: 1 1 45%; max-width: 45%;">
+            <video id="taahm" autoplay controls muted loop playsinline width="100%">
+              <source src="./static/videos/app_pose.mp4" type="video/mp4">
+            </video>
+            <p>Pose Manipulation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
         <!-- Interpolating. -->
         <!-- <h3 class="title is-4">Interpolating states</h3>
@@ -320,11 +400,7 @@
           </video>
         </div> -->
         <!--/ Re-rendering. -->
-
-      </div>
-    </div>
-    <!--/ Animation. -->
-
+        
 
     <!-- Concurrent Work. -->
     <!-- <div class="columns is-centered">
@@ -353,9 +429,23 @@
     </div> -->
     <!--/ Concurrent Work. -->
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-left">
+      <div class="column is-full-width">
+        <h2 class="title">Acknowledgements</h2>
+        <div class="content"> 
+          <p>
+            This work was supported by IITP grant (RS-2021-II211343: AI Graduate School Program (Seoul National University) and 
+            RS-2023-00227993: Detailed 3D reconstruction for urban areas from unstructured images) and 
+            NRF grant (No.2023R1A1C200781211) funded by the Korea government (MSIT). 
+            We also thank Daeun Lee for her help with the rebuttal experiments.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
-
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">

@@ -70,9 +70,21 @@
         </tbody></table>
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
-  <tr>
+  <tr onmouseout="omg4_stop()" onmouseover="omg4_start()">
     <td style="padding:16px;width:20%;vertical-align:middle">
-      <img src='images/omg4.jpg' width="160">
+      <span class="thumb">
+        <img src="images/omg4.png" alt="">
+        <span class="overlay" id="omg4_image">
+          <video muted autoplay loop playsinline>
+            <source src="images/omg4.mp4" type="video/mp4">
+          </video>
+        </span>
+      </span>
+      <script>
+        function omg4_start(){ document.getElementById('omg4_image').style.opacity = '1'; }
+        function omg4_stop(){  document.getElementById('omg4_image').style.opacity = '0'; }
+        omg4_stop();
+      </script>
     </td>
     <td style="padding:8px;width:80%;vertical-align:middle">
       <a href="https://minshirley.github.io/OMG4/">
@@ -105,22 +117,18 @@
   
   <tr onmouseout="sm3r_stop()" onmouseover="sm3r_start()">
     <td style="padding:16px;width:20%;vertical-align:middle">
-      <div class="one">
-        <div class="two" id='sm3r_image'><video  width=100% height=100% muted autoplay loop>
-        <source src="images/sm3r.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-        </video></div>
-        <img src='images/sm3r.jpg' width="160">
-      </div>
-      <script type="text/javascript">
-        function sm3r_start() {
-          document.getElementById('sm3r_image').style.opacity = "1";
-        }
-
-        function sm3r_stop() {
-          document.getElementById('sm3r_image').style.opacity = "0";
-        }
-        sm3r_stop()
+      <span class="thumb">
+        <img src="images/sm3r.jpg" alt="">
+        <span class="overlay" id="sm3r_image">
+          <video muted autoplay loop playsinline>
+            <source src="images/sm3r.mp4" type="video/mp4">
+          </video>
+        </span>
+      </span>
+      <script>
+        function sm3r_start(){ document.getElementById('sm3r_image').style.opacity = '1'; }
+        function sm3r_stop(){  document.getElementById('sm3r_image').style.opacity = '0'; }
+        sm3r_stop();
       </script>
     </td>
     <td style="padding:8px;width:80%;vertical-align:middle">

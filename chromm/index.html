@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.158.0/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.158.0/examples/jsm/"
+    }
+  }
+  </script>
+  <meta name="description"
+        content="Coherent Human-Scene Reconstruction from Multi-Person Multi-View Video in a Single Pass">
+  <meta name="keywords" content="CHROMM">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Coherent Human-Scene Reconstruction from Multi-Person Multi-View Video in a Single Pass</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪙</text></svg>">
+
+  <style>
+    .gallery-panel {
+      background-color: #fafafa;
+      padding: 20px;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .thumbnail-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px auto 10px;
+      max-width: 100%;
+    }
+    .gallery-thumbnail {
+      border-radius: 6px;
+      border: 2px solid #fff;
+      box-shadow: 0 0 4px #888;
+      width: 120px;
+      height: 80px;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .gallery-thumbnail:hover {
+      transform: scale(1.1);
+    }
+    .gallery-thumbnail.active {
+      border: 3px solid #8a8a8a;
+    }
+    .gallery-video {
+      transition: opacity 0.3s ease;
+      width: 100% !important;
+      height: auto !important;
+      aspect-ratio: 16/9;
+      background-color: #000;
+    }
+  </style>
+  <style>
+    .viewer-container {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    #viewer-canvas {
+      width: 100%;
+      height: 500px;
+      background-color: #1a1a2e;
+      border-radius: 8px;
+      display: block;
+    }
+    .viewer-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 12px;
+      padding: 10px 16px;
+      background: #fafafa;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+    .viewer-controls button {
+      background: #363636;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 14px;
+      cursor: pointer;
+      font-size: 14px;
+      min-width: 44px;
+    }
+    .viewer-controls button:hover {
+      background: #4a4a4a;
+    }
+    .viewer-controls input[type="range"] {
+      flex: 1;
+    }
+    .viewer-controls .frame-label {
+      font-size: 13px;
+      color: #555;
+      min-width: 80px;
+      text-align: right;
+      font-family: monospace;
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title" style="line-height:1.2;">
+              <span style="display:inline-flex; gap:0.05em; align-items:baseline;">
+                <span style="font-size:1.5em;color:#8a8a8a;font-weight:bold;">C</span>
+                <span style="font-size:1.5em;color:#a0a0a0;font-weight:bold;">H</span>
+                <span style="font-size:1.5em;color:#b8b8b8;font-weight:bold;">R</span>
+                <span style="font-size:1.5em;color:#a0a0a0;font-weight:bold;">O</span>
+                <span style="font-size:1.5em;color:#8a8a8a;font-weight:bold;">M</span>
+                <span style="font-size:1.5em;color:#747474;font-weight:bold;">M</span>
+              </span><br>
+
+              <span style="font-size:0.8em;">
+              <span style="color:#000000;font-weight:bold;">C</span>oherent
+              <span style="color:#000000;font-weight:bold;">H</span>uman-Scene
+              <span style="color:#000000;font-weight:bold;">R</span>ec<span style="color:#000000;font-weight:bold;">o</span>nstruction from<br>
+              <span style="color:#000000;font-weight:bold;">M</span>ulti-Person
+              <span style="color:#000000;font-weight:bold;">M</span>ulti-View Video in a Single Pass
+              </span>
+          </h1>
+          <!-- <h2 class="subtitle is-3 publication-title">CVPR 2025</h2> -->
+          <!-- Authors. -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://nstar1125.github.io">Sangmin Kim</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/sisypmyhh/">Minhyuk Hwang</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=1uQa-hoAAAAJ&hl=en&oi=ao">Geonho Cha</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=oEKX8h0AAAAJ&hl=en">Dongyoon Wee</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="http://jaesik.info">Jaesik Park</a><sup>1</sup></span>
+          </div>
+          <!-- Institute. -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup> Seoul National University &nbsp;&nbsp;&nbsp;</span>
+            <span class="author-block"><sup>2</sup> NAVER Cloud</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- arXiv Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2603.12789"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2603.12789"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        <strong>TL;DR:</strong> Given multi-person, multi-view videos, <strong>CHROMM</strong> reconstructs cameras, scene point cloud, and human meshes in a single pass.
+      </h2>
+      <video id="Teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/CHROMM_teaser.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background-color: #f5f5f5;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent advances in 3D foundation models have led to growing interest in reconstructing humans and their surrounding environments. 
+            However, most existing approaches focus on monocular inputs, and extending them to multi-view settings requires additional overhead modules or preprocessed data. 
+            To this end, we present CHROMM, a unified framework that jointly estimates cameras, scene point clouds, 
+            and human meshes from multi-person multi-view videos without relying on external modules or preprocessing.
+            We integrate strong geometric and human priors from Pi3X and Multi-HMR into a single trainable neural network architecture, 
+            and introduce a scale adjustment module to solve the scale discrepancy between humans and the scene.
+            We also introduce a multi-view fusion strategy to aggregate per-view estimates into a single representation at test-time.
+            Finally, we propose a geometry-based multi-person association method, which is more robust than appearance-based approaches.
+            Experiments on EMDB, RICH, EgoHumans, and EgoExo4D show that CHROMM achieves competitive performance in global human motion 
+            and multi-view pose estimation while running over 8x faster than prior optimization-based multi-view approaches.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+
+        <h2 class="title is-3">Method</h2>
+        <img src="./static/images/pipeline.jpg"
+                 class="pipeline-image"
+                 alt="Pipeline image."/>
+        <div class="content has-text-justified">
+          <strong>Overview of our pipeline.</strong> Each frame is encoded by the Pi3 encoder and the Multi-HMR encoder. 
+          The Pi3 features are decoded to reconstruct the scene. 
+          Head tokens detected from Multi-HMR features are fused with the corresponding tokens from the Pi3 decoder tokens to predict SMPL parameters. 
+          At test time, we associate persons across views and fuse them into a global representation, followed by a scale adjustment module to align humans and the scene.
+        </div>        
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+
+        <h2 class="title is-3">Experiments</h2>
+        <img src="./static/images/result.jpg"
+                 class="pipeline-image"
+                 alt="Pipeline image."/>
+        <div class="content has-text-justified">
+          Experiments on EMDB, RICH, EgoHumans, and EgoExo4D show that CHROMM achieves competitive or superior performance in global human motion and multi-view pose estimation tasks.
+          In particular, Table 1 shows that our model achieves strong results in both monocular and multi-view settings.
+        </div>        
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Interactive Viewer</h2>
+        <p>Explore the reconstructed humans and the scene interactively.</p>
+        <div class="viewer-container" style="margin-top: 20px;">
+          <div id="viewer-canvas" style="width:100%;height:500px;background:#1a1a2e;border-radius:8px;overflow:hidden;"></div>
+          <div class="viewer-controls">
+            <button id="viewer-play-btn" title="Play/Pause">&#9654;</button>
+            <input id="viewer-slider" type="range" min="0" max="29" value="0" step="1">
+            <span id="viewer-frame-label" class="frame-label">0 / 29</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Multi-View Results</h2>
+        <p>Given multi-view video, CHROMM reconstructs coherent human meshes and the surrounding scene in diverse settings.</p>
+      </div>
+    </div>
+  </div>
+  <div id="multiview-gallery" style="padding-top: 0;"></div>
+</section>
+
+<section class="section" style="padding-top: 1.5rem;">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Monocular Results</h2>
+        <p>CHROMM can also be applied to a monocular set up.</p>
+      </div>
+    </div>
+  </div>
+  <div id="monocular-gallery" style="padding-top: 0;"></div>
+</section>
+
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-left">
+      <div class="column is-full-width">
+        <h2 class="title">Acknowledgements</h2>
+        <div class="content"> 
+          <p>
+            This work was supported by IITP grant (RS-2021-II211343: AI Graduate School Program (Seoul National University) and 
+            RS-2023-00227993: Detailed 3D reconstruction for urban areas from unstructured images) and 
+            NRF grant (No.2023R1A1C200781211) funded by the Korea government (MSIT). 
+            We also thank Daeun Lee for her help with the rebuttal experiments.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{kim2026chromm,
+  author    = {Kim, Sangmin and Hwang, Minhyuk and Cha, Geonho and Wee, Dongyoon and Park, Jaesik},
+  title     = {Coherent Human-Scene Reconstruction from Multi-Person Multi-View Video in a Single Pass},
+  journal   = {arXiv},
+  year      = {2026}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // === Multi-View Results 비디오 목록 ===
+  // 비디오 파일: static/videos/multiview/{name}.mp4
+  // 썸네일 파일: static/thumbs/multiview/{name}.jpg
+  var multiviewData = [
+    'egohumans_s1',
+    'egobody_s1',
+    'egobody_s2',
+    'egobody_s6',
+    'egobody_s8',
+    'egobody_s10',
+  ];
+
+  // === Monocular Results 비디오 목록 ===
+  // 비디오 파일: static/videos/monocular/{name}.mp4
+  // 썸네일 파일: static/thumbs/monocular/{name}.jpg
+  var monocularData = [
+    'downtown_walkUphill_00_s1',
+    'outdoors_parcours_00_s1',
+  ];
+
+  function createGallery(containerId, videoList, videoDir, thumbDir) {
+    var container = document.getElementById(containerId);
+    if (!container || videoList.length === 0) return;
+
+    var thumbnailsHtml = videoList.map(function(name) {
+      return '<img src="' + thumbDir + '/' + name + '.jpg" ' +
+             'data-video="' + videoDir + '/' + name + '.mp4" ' +
+             'class="gallery-thumbnail" alt="' + name + '">';
+    }).join('');
+
+    var videoId = containerId + '-video';
+    var sourceId = containerId + '-source';
+
+    container.innerHTML =
+      '<div class="container is-max-desktop">' +
+        '<div class="columns is-centered has-text-centered">' +
+          '<div class="column is-full gallery-panel">' +
+            '<div style="display:flex;justify-content:center;width:100%;margin-bottom:20px;">' +
+              '<div style="max-width:1200px;width:100%;position:relative;">' +
+                '<video id="' + videoId + '" class="gallery-video" controls autoplay muted loop playsinline>' +
+                  '<source id="' + sourceId + '" src="' + videoDir + '/' + videoList[0] + '.mp4" type="video/mp4">' +
+                '</video>' +
+              '</div>' +
+            '</div>' +
+            '<div class="thumbnail-container">' + thumbnailsHtml + '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+
+    var video = document.getElementById(videoId);
+    var thumbnails = container.querySelectorAll('.gallery-thumbnail');
+
+    // 첫 번째 썸네일 활성화
+    if (thumbnails.length > 0) {
+      thumbnails[0].classList.add('active');
+    }
+
+    thumbnails.forEach(function(thumb) {
+      thumb.addEventListener('click', function(e) {
+        e.preventDefault();
+        // 모든 썸네일 비활성화
+        thumbnails.forEach(function(t) { t.classList.remove('active'); });
+        thumb.classList.add('active');
+
+        video.style.opacity = '0';
+        var source = document.getElementById(sourceId);
+        source.src = thumb.dataset.video;
+        video.load();
+        video.addEventListener('loadedmetadata', function onLoaded() {
+          video.removeEventListener('loadedmetadata', onLoaded);
+          video.style.opacity = '1';
+          video.play().catch(function() {});
+        });
+      });
+    });
+  }
+
+  createGallery('multiview-gallery', multiviewData, './static/videos/multiview', './static/thumbs/multiview');
+  createGallery('monocular-gallery', monocularData, './static/videos/monocular', './static/thumbs/monocular');
+
+
+});
+</script>
+<script type="module" src="./static/js/viewer.js"></script>
+
+</body>
+</html>

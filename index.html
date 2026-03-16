@@ -74,6 +74,75 @@
         </tbody></table>
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
+<tr onmouseout="chromm_stop()" onmouseover="chromm_start()">
+    <td style="padding:16px;width:20%;vertical-align:middle">
+      <span class="thumb">
+        <img src="images/chromm.jpg" alt="">
+        <span class="overlay" id="chromm_image">
+          <video muted autoplay loop playsinline>
+            <source src="images/chromm.mp4" type="video/mp4">
+          </video>
+        </span>
+      </span>
+      <script>
+        function chromm_start(){ document.getElementById('chromm_image').style.opacity = '1'; }
+        function chromm_stop(){  document.getElementById('chromm_image').style.opacity = '0'; }
+        chromm_stop();
+      </script>
+    </td>
+    <td style="padding:8px;width:80%;vertical-align:middle">
+      <a href="https://nstar1125.github.io/chromm/">
+    <span class="papertitle">Coherent Human-Scene Reconstruction from Multi-Person Multi-View Video in a Single Pass</span>
+      </a>
+      <br>
+        <strong>Sangmin Kim</strong>,
+        Minhyuk Hwang,
+        Geonho Cha,
+        Dongyoon Wee,
+        Jaesik Park
+      <br>
+      <em>Under Review</em>
+      <br>
+      <a href="https://arxiv.org/abs/2603.12789">paper</a>
+      /
+      <a href="">code</a>
+      <p></p>
+      <p>
+        We present CHROMM, a framework that reconstructs cameras, scene point cloud, and human meshes from multi-person, multi-view videos in a single pass.
+      </p>
+    </td>
+  </tr>
+
+  <tr>
+    <td style="padding:16px;width:20%;vertical-align:middle">
+      <span class="thumb">
+        <img src="images/seal-pose.jpg" alt="">
+      </span>
+    </td>
+    <td style="padding:8px;width:80%;vertical-align:middle">
+      <a href="">
+    <span class="papertitle">SEAL-pose: Enhancing 3D Human Pose Estimation via a Learned Loss for Structural Consistency</span>
+      </a>
+      <br>
+        Yeonsung Kim*,
+        Junggeun Do*,
+        Seunguk Do,
+        <strong>Sangmin Kim</strong>,
+        Jaesik Park,
+        Jay-Yoon Lee
+      <br>
+      <em>Under Review</em>
+      <br>
+      <a href="https://arxiv.org/abs/2602.20051">paper</a>
+      /
+      <a href="">code</a>
+      <p></p>
+      <p>
+         We propose SEAL-pose, a data-driven framework in which a learnable loss-net trains a pose-net by evaluating structural plausibility.
+      </p>
+    </td>
+  </tr>
+
   <tr onmouseout="omg4_stop()" onmouseover="omg4_start()">
     <td style="padding:16px;width:20%;vertical-align:middle">
       <span class="thumb">
@@ -106,7 +175,7 @@
       Jaesik Park, 
       Eunbyung Park
       <br>
-      <em>arXiv</em>, 2025
+      <em>Under Review</em>
       <br>
       <a href="https://arxiv.org/abs/2510.03857">paper</a>
       /
@@ -154,7 +223,7 @@
         A comprehensive pipeline that reconstructs the dynamic radiance field from TV shows, enabling viewpoint editing like how the video clip is made in a production control room.
       </p>
     </td>
-  </tr>            
+  </tr>
         </tbody></table>
         <!-- ---------------------------------------------------------------------------------------------------- -->
 
@@ -179,7 +248,7 @@
                         <li style="margin-bottom:1.2em;">
                           <strong>Research Internship</strong><br>
                           <a href="https://www.navercloudcorp.com/en/">NAVER Cloud</a> (Oct 2025 - Present)<br>
-                          Working on dynamic Gaussian Splatting and 3D human avatar reconstruction.<br>
+                          Worked on feed-forward 4D human-scene reconstruction.<br>
                         </li>
                       </ul>
                     </td>
@@ -223,12 +292,18 @@
               <td style="padding:16px;width:100%;vertical-align:middle;">
                 <ul style="list-style-type:none; margin:0; padding:0;">
                   <li style="margin-bottom:1.2em;">
+                    <strong>Grand Award</strong><br>
+                    Awarded by Seoul National University<br>
+                    AI Startup Competition (Sep 2025)
+                  </li>
+                  
+                  <li style="margin-bottom:1.2em;">
                     <strong>M.S. Fellowship</strong><br>
                     Funded by <a href="https://english.moe.go.kr/main.do?s=english">Korean Ministry of Education</a> <br>
                     750 M.S. students selected nationwide (Sep 2024 - Aug 2025)
                   </li>
                   
-                  <li style="margin-bottom:1.2em;">
+                  <!-- <li style="margin-bottom:1.2em;">
                     <strong><a href="https://github.com/nstar1125/DorunDorun">Excellence Award</a></strong><br>
                     Awarded by Chung-Ang University<br>
                     Capstone Design Competition (June 2024)
@@ -243,7 +318,7 @@
                   <li style="margin-bottom:1.2em;">
                     <strong>Academic Scholarship</strong><br>
                     Awarded by Chung-Ang University (Jan 2023)<br>
-                  </li>
+                  </li> -->
                 </ul>
               </td>
             </tr>

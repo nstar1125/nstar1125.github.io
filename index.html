@@ -46,12 +46,16 @@
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
               <td style="padding:16px;width:100%;vertical-align:middle;">
-                <h2>🚩 News</h2>
+                <h2>🗞️ News</h2>
               </td>
             </tr>
             <tr>
               <td style="padding:16px;width:100%;vertical-align:middle;">
                 <ul style="list-style-type:none; margin:0; padding:0;">
+                  <li style="margin-bottom:1.2em;">
+                    <span style="font-weight:bold; margin-right:10px;">Apr 15, 2026</span>
+                    A paper about diffusion guided studio reconstruction has been accepted to <a href="https://s2026.siggraph.org/">SIGGRAPH 2026</a>, Los Angeles.
+                  </li>
                   <li style="margin-bottom:1.2em;">
                     <span style="font-weight:bold; margin-right:10px;">Oct 20, 2025</span>
                     I started a research internship at <a href="https://www.navercloudcorp.com/en/">NAVER Cloud</a>'s Video Team.
@@ -71,11 +75,51 @@
             <tr>
               <td style="padding:16px;width:100%;vertical-align:middle">
                 <h2>📚 Publications</h2>
-                <p style="margin:4px 0 0 0;">* denotes equal contribution. Representative papers are <span style="background-color:#fff176;padding:1px 4px;border-radius:3px;">highlighted</span>.</p>
+                <p style="margin:4px 0 0 0;">* indicates equal contribution. Representative papers are <span style="background-color:#fff176;padding:1px 4px;border-radius:3px;">highlighted</span>.</p>
               </td>
             </tr>
           </tbody></table>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+
+            <tr onmouseout="studiorecon_stop()" onmouseover="studiorecon_start()" style="background-color:#fff176">
+              <td style="padding:16px;width:30%;vertical-align:middle">
+                <span class="thumb" style="width:200px;">
+                  <img src="images/studiorecon.jpg" alt="">
+                  <span class="overlay" id="studiorecon_image">
+                    <video muted autoplay loop playsinline>
+                      <source src="images/studiorecon.mp4" type="video/mp4">
+                    </video>
+                  </span>
+                </span>
+                <script>
+                  function studiorecon_start(){ document.getElementById('studiorecon_image').style.opacity = '1'; }
+                  function studiorecon_stop(){  document.getElementById('studiorecon_image').style.opacity = '0'; }
+                  studiorecon_stop();
+                </script>
+              </td>
+              <td style="padding:8px;width:70%;vertical-align:middle">
+                <a href="">
+                  <span class="papertitle">StudioRecon: 4D Human-Scene Reconstruction from Low-Overlap Captures</span>
+                </a>
+                <br>
+                Minhyuk Hwang*,
+                <strong><u>Sangmin Kim*</u></strong>,
+                Seunguk Do,
+                Daneul Kim,
+                Jaesik Park
+                <br>
+                <p style="margin:8px 0 0 0"></p>
+                <em>arXiv, 2026</em>
+                <br>
+                <p style="margin:8px 0 0 0"></p>
+                <a href="">project</a>
+                /
+                <a href="">paper</a>
+                /
+                <a href="">code</a>
+                <p></p>
+              </td>
+            </tr>
 
             <tr onmouseout="trigs_stop()" onmouseover="trigs_start()">
               <td style="padding:16px;width:30%;vertical-align:middle">

@@ -54,6 +54,10 @@
               <td style="padding:16px;width:100%;vertical-align:middle;">
                 <ul style="list-style-type:none; margin:0; padding:0;">
                   <li style="margin-bottom:1.2em;">
+                    <span style="font-weight:bold; margin-right:10px;">May 6, 2026</span>
+                    I will be joining <a href="https://europe.naverlabs.com">NAVER LABS Europe</a> as a research intern in spring 2027, Grenoble.
+                  </li>
+                  <li style="margin-bottom:1.2em;">
                     <span style="font-weight:bold; margin-right:10px;">Apr 15, 2026</span>
                     A paper about diffusion guided studio reconstruction has been accepted to <a href="https://s2026.siggraph.org/">SIGGRAPH 2026</a>, Los Angeles.
                   </li>
@@ -61,11 +65,12 @@
                     <span style="font-weight:bold; margin-right:10px;">Oct 20, 2025</span>
                     I started a research internship at <a href="https://www.navercloudcorp.com/en/">NAVER Cloud</a>'s Video Team.
                   </li>
-                  <li style="margin-bottom:1.2em;">
+                  <li id="extra-news-item" style="margin-bottom:1.2em;display:none;">
                     <span style="font-weight:bold; margin-right:10px;">Feb 27, 2025</span>
                     A paper about TV show dynamic reconstruction has been accepted to <a href="https://cvpr.thecvf.com/Conferences/2025">CVPR 2025</a>, Nashville.
                   </li>
                 </ul>
+                <a id="toggle-news-btn" onclick="toggleExtraNews()" style="cursor:pointer;">Show All</a>
               </td>
             </tr>
           </tbody></table>
@@ -82,6 +87,32 @@
           </tbody></table>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
+            <tr>
+              <td style="padding:16px;width:30%;vertical-align:middle">
+                <span class="thumb" style="width:200px;">
+                  <img src="images/ftgs2.jpg" alt="">
+                </span>
+              </td>
+              <td style="padding:8px;width:70%;vertical-align:middle">
+                <a href="">
+                  <span class="papertitle">FreeTimeGS++: Secrets of Dynamic Gaussian Splatting and Their Principles</span>
+                </a>
+                <br>
+                Lucas Yunkyu Lee, 
+                Soonho Kim, 
+                Youngwook Kim,
+                <strong><u>Sangmin Kim</u></strong>,
+                Jaesik Park
+                <br>
+                <p style="margin:8px 0 0 0"></p>
+                <em>arXiv, 2026</em>
+                <br>
+                <p style="margin:8px 0 0 0"></p>
+                <a href="https://arxiv.org/abs/2605.03337">paper</a>
+                <p></p>
+              </td>
+            </tr>
+            
             <tr onmouseout="studiorecon_stop()" onmouseover="studiorecon_start()" style="background-color:#fff176">
               <td style="padding:16px;width:30%;vertical-align:middle">
                 <span class="thumb" style="width:200px;">
@@ -99,8 +130,8 @@
                 </script>
               </td>
               <td style="padding:8px;width:70%;vertical-align:middle">
-                <a href="">
-                  <span class="papertitle">StudioRecon: 4D Human-Scene Reconstruction from Low-Overlap Captures</span>
+                <a href="https://sisyphm.github.io/studiorecon-page/">
+                  <span class="papertitle">4D Human-Scene Reconstruction from Low-Overlap Captures</span>
                 </a>
                 <br>
                 Minhyuk Hwang*,
@@ -113,12 +144,11 @@
                 <em>SIGGRAPH, 2026</em>
                 <br>
                 <p style="margin:8px 0 0 0"></p>
-                <!-- <a href="">project</a> -->
+                <a href="https://sisyphm.github.io/studiorecon-page/">project</a>
                 <!-- / -->
                 <!-- <a href="">paper</a> -->
                 <!-- / -->
                 <!-- <a href="">code</a> -->
-                 Coming soon!
                 <p></p>
               </td>
             </tr>
@@ -373,26 +403,43 @@
           </tbody></table>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
-              <td style="padding:0px 16px 0px 16px;width:30%;vertical-align:middle">
+              <td style="padding:4px 16px 4px 16px;width:30%;vertical-align:middle">
+                <span class="thumb" style="width:200px;">
+                  <img src="images/nle.png" alt="Naver labs europe Logo">
+                </span>
+              </td>
+              <td style="padding:4px 8px 4px 8px;width:70%;vertical-align:middle">
+                <strong><a href="https://www.navercloudcorp.com/en/">NAVER LABS Europe</a></strong>, Research Intern<br>
+                Grenoble, France (Spring 2027, Expected)<br>
+                <p style="margin:8px 0 0 0"></p>
+                Will be working on 3D humans (Host: <a href="https://fabienbaradel.github.io">Fabien Baradel</a>).<br>
+              </td>
+            </tr>
+            
+            <tr>
+              <td style="padding:4px 16px 4px 16px;width:30%;vertical-align:middle">
                 <span class="thumb" style="width:200px;">
                   <img src="images/naver_cloud.png" alt="Naver Cloud Logo">
                 </span>
               </td>
               <td style="padding:0px 8px 0px 8px;width:70%;vertical-align:middle">
-                <strong>Research Internship</strong><br>
-                <a href="https://www.navercloudcorp.com/en/">NAVER Cloud</a> (Oct 2025 - Apr 2026)<br>
-                Worked on feed-forward 4D human-scene reconstruction.<br>
+                <strong><a href="https://www.navercloudcorp.com/en/">NAVER Cloud</a></strong>, Research Intern<br>
+                Seongnam, Korea (Oct 2025 - Apr 2026)<br>
+                <p style="margin:8px 0 0 0"></p>
+                Worked on feed-forward 4D human-scene reconstruction (Host: <a href="https://scholar.google.com/citations?user=oEKX8h0AAAAJ&hl=en">Dongyoon Wee</a>).<br>
               </td>
             </tr>
+            
             <tr>
-              <td style="padding:0px 16px 0px 16px;width:30%;vertical-align:middle">
+              <td style="padding:4px 16px 4px 16px;width:30%;vertical-align:middle">
                 <span class="thumb" style="width:200px;">
                   <img src="images/deloitte.png" alt="Deloitte Logo">
                 </span>
               </td>
               <td style="padding:0px 8px 0px 8px;width:70%;vertical-align:middle">
-                <strong>Consulting Internship</strong><br>
-                <a href="https://www2.deloitte.com/kr/ko.html">Deloitte Korea</a> (Nov 2021 - Feb 2022)<br>
+                <strong><a href="https://www2.deloitte.com/kr/ko.html">Deloitte</a></strong>, Consulting Intern<br>
+                Seoul, Korea (Nov 2021 - Feb 2022)
+                <p style="margin:8px 0 0 0"></p>
                 Assisted consulting on revision of Shinhan Bank's ICT regulation.<br>
               </td>
             </tr>
@@ -455,5 +502,18 @@
         </td>
       </tr>
     </table>
+  <script>
+    function toggleExtraNews() {
+      var item = document.getElementById('extra-news-item');
+      var btn = document.getElementById('toggle-news-btn');
+      if (item.style.display === 'none') {
+        item.style.display = '';
+        btn.textContent = 'Hide All';
+      } else {
+        item.style.display = 'none';
+        btn.textContent = 'Show All';
+      }
+    }
+  </script>
   </body>
 </html>

@@ -56,6 +56,10 @@
               <td style="padding:16px;width:100%;vertical-align:middle;">
                 <ul style="list-style-type:none; margin:0; padding:0;">
                   <li style="margin-bottom:1.2em;">
+                    <span style="font-weight:bold; margin-right:10px;">Apr 15, 2026</span>
+                    A paper about scalable 4DGS has been accepted to <a href="https://eccv.ecva.net/Conferences/2026">ECCV 2026</a>, Malmö.
+                  </li>
+                  <li style="margin-bottom:1.2em;">
                     <span style="font-weight:bold; margin-right:10px;">May 6, 2026</span>
                     I will be joining <a href="https://europe.naverlabs.com">NAVER LABS Europe</a> as a research intern in May 2027, Grenoble.
                   </li>
@@ -63,7 +67,7 @@
                     <span style="font-weight:bold; margin-right:10px;">Apr 15, 2026</span>
                     A paper about diffusion guided studio reconstruction has been accepted to <a href="https://s2026.siggraph.org/">SIGGRAPH 2026</a>, Los Angeles.
                   </li>
-                  <li style="margin-bottom:1.2em;">
+                  <li id="extra-news-item" style="margin-bottom:1.2em;display:none;">
                     <span style="font-weight:bold; margin-right:10px;">Oct 20, 2025</span>
                     I started a research internship at <a href="https://www.navercloudcorp.com/en/">NAVER Cloud</a>'s Video Team.
                   </li>
@@ -143,6 +147,51 @@
           </tbody></table>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
+            <tr onmouseout="trigs_stop()" onmouseover="trigs_start()">
+              <td style="padding:16px;width:30%;vertical-align:middle">
+                <span class="thumb" style="width:200px;">
+                  <img src="images/trigs.jpg" alt="">
+                  <span class="overlay" id="trigs_image">
+                    <video muted autoplay loop playsinline>
+                      <source src="images/trigs.mp4" type="video/mp4">
+                    </video>
+                  </span>
+                </span>
+                <script>
+                  function trigs_start(){ document.getElementById('trigs_image').style.opacity = '1'; }
+                  function trigs_stop(){  document.getElementById('trigs_image').style.opacity = '0'; }
+                  trigs_stop();
+                </script>
+              </td>
+              <td style="padding:8px;width:70%;vertical-align:middle">
+                <a href="https://wwwjjn.github.io/TRiGS-project_page/">
+                  <span class="papertitle">TRiGS: Temporal Rigid-body Motion for Scalable 4D Gaussian Splatting</span>
+                </a>
+                <br>
+                Suwoong Yeom*,
+                Joonsik Nam*,
+                Seunggyu Choi*,
+                Lucas Yunkyu Lee,
+                <strong><u>Sangmin Kim</u></strong>,
+                Jaesik Park,
+                Joonsoo Kim,
+                Kugjin Yun,
+                Kyeongbo Kong,
+                Sukju Kang
+                <br>
+                <p style="margin:8px 0 0 0"></p>
+                <em>ECCV, 2026</em>
+                <br>
+                <p style="margin:8px 0 0 0"></p>
+                <a href="https://wwwjjn.github.io/TRiGS-project_page/">project</a>
+                /
+                <a href="https://arxiv.org/abs/2604.00538">paper</a>
+                <!-- / -->
+                <!-- <a href="">code</a> -->
+                <p></p>
+              </td>
+            </tr>
+            
             <tr>
               <td style="padding:16px;width:30%;vertical-align:middle">
                 <span class="thumb" style="width:200px;">
@@ -207,51 +256,6 @@
                 <a href="https://sisyphm.github.io/studiorecon-page/">project</a>
                 <!-- / -->
                 <!-- <a href="">paper</a> -->
-                <!-- / -->
-                <!-- <a href="">code</a> -->
-                <p></p>
-              </td>
-            </tr>
-
-            <tr onmouseout="trigs_stop()" onmouseover="trigs_start()">
-              <td style="padding:16px;width:30%;vertical-align:middle">
-                <span class="thumb" style="width:200px;">
-                  <img src="images/trigs.jpg" alt="">
-                  <span class="overlay" id="trigs_image">
-                    <video muted autoplay loop playsinline>
-                      <source src="images/trigs.mp4" type="video/mp4">
-                    </video>
-                  </span>
-                </span>
-                <script>
-                  function trigs_start(){ document.getElementById('trigs_image').style.opacity = '1'; }
-                  function trigs_stop(){  document.getElementById('trigs_image').style.opacity = '0'; }
-                  trigs_stop();
-                </script>
-              </td>
-              <td style="padding:8px;width:70%;vertical-align:middle">
-                <a href="https://wwwjjn.github.io/TRiGS-project_page/">
-                  <span class="papertitle">TRiGS: Temporal Rigid-body Motion for Scalable 4D Gaussian Splatting</span>
-                </a>
-                <br>
-                Suwoong Yeom*,
-                Joonsik Nam*,
-                Seunggyu Choi*,
-                Lucas Yunkyu Lee,
-                <strong><u>Sangmin Kim</u></strong>,
-                Jaesik Park,
-                Joonsoo Kim,
-                Kugjin Yun,
-                Kyeongbo Kong,
-                Sukju Kang
-                <br>
-                <p style="margin:8px 0 0 0"></p>
-                <em>arXiv, 2026</em>
-                <br>
-                <p style="margin:8px 0 0 0"></p>
-                <a href="https://wwwjjn.github.io/TRiGS-project_page/">project</a>
-                /
-                <a href="https://arxiv.org/abs/2604.00538">paper</a>
                 <!-- / -->
                 <!-- <a href="">code</a> -->
                 <p></p>

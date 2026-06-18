@@ -67,11 +67,11 @@
                     <span style="font-weight:bold; margin-right:10px;">Apr 15, 2026</span>
                     A paper about diffusion guided studio reconstruction has been accepted to <a href="https://s2026.siggraph.org/">SIGGRAPH 2026</a>, Los Angeles.
                   </li>
-                  <li id="extra-news-item" style="margin-bottom:1.2em;display:none;">
+                  <li class="extra-news-item" style="margin-bottom:1.2em;display:none;">
                     <span style="font-weight:bold; margin-right:10px;">Oct 20, 2025</span>
                     I started a research internship at <a href="https://www.navercloudcorp.com/en/">NAVER Cloud</a>'s Video Team.
                   </li>
-                  <li id="extra-news-item" style="margin-bottom:1.2em;display:none;">
+                  <li class="extra-news-item" style="margin-bottom:1.2em;display:none;">
                     <span style="font-weight:bold; margin-right:10px;">Feb 27, 2025</span>
                     A paper about TV show dynamic reconstruction has been accepted to <a href="https://cvpr.thecvf.com/Conferences/2025">CVPR 2025</a>, Nashville.
                   </li>
@@ -462,15 +462,13 @@
     </table>
   <script>
     function toggleExtraNews() {
-      var item = document.getElementById('extra-news-item');
+      var items = document.getElementsByClassName('extra-news-item');
       var btn = document.getElementById('toggle-news-btn');
-      if (item.style.display === 'none') {
-        item.style.display = '';
-        btn.textContent = 'Hide All';
-      } else {
-        item.style.display = 'none';
-        btn.textContent = 'Show All';
+      var hidden = items[0].style.display === 'none';
+      for (var i = 0; i < items.length; i++) {
+        items[i].style.display = hidden ? '' : 'none';
       }
+      btn.textContent = hidden ? 'Hide All' : 'Show All';
     }
   </script>
   </body>

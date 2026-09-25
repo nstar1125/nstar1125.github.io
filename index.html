@@ -56,6 +56,10 @@
               <td style="padding:16px;width:100%;vertical-align:middle;">
                 <ul style="list-style-type:none; margin:0; padding:0;">
                   <li style="margin-bottom:1.2em;">
+                    <span style="font-weight:bold; margin-right:10px;">September 25, 2026</span>
+                    Two papers about 4DGS has been accepted to <a href="">NeurIPS 2026</a>.
+                  </li>
+                  <li style="margin-bottom:1.2em;">
                     <span style="font-weight:bold; margin-right:10px;">June 18, 2026</span>
                     A paper about scalable 4DGS has been accepted to <a href="https://eccv.ecva.net/Conferences/2026">ECCV 2026</a>, Malmö.
                   </li>
@@ -63,7 +67,7 @@
                     <span style="font-weight:bold; margin-right:10px;">May 6, 2026</span>
                     I will be joining <a href="https://europe.naverlabs.com">NAVER LABS Europe</a> as a research intern in May 2027, Grenoble.
                   </li>
-                  <li style="margin-bottom:1.2em;">
+                  <li class="extra-news-item" style="margin-bottom:1.2em;display:none;">
                     <span style="font-weight:bold; margin-right:10px;">Apr 15, 2026</span>
                     A paper about diffusion guided studio reconstruction has been accepted to <a href="https://s2026.siggraph.org/">SIGGRAPH 2026</a>, Los Angeles.
                   </li>
@@ -147,6 +151,124 @@
           </tbody></table>
           <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
+            <tr onmouseout="chromm_stop()" onmouseover="chromm_start()" style="background-color:#fff176">
+              <td style="padding:16px;width:30%;vertical-align:middle">
+                <span class="thumb" style="width:200px;">
+                  <img src="images/chromm.jpg" alt="">
+                  <span class="overlay" id="chromm_image">
+                    <video muted autoplay loop playsinline>
+                      <source src="images/chromm.mp4" type="video/mp4">
+                    </video>
+                  </span>
+                </span>
+                <script>
+                  function chromm_start(){ document.getElementById('chromm_image').style.opacity = '1'; }
+                  function chromm_stop(){  document.getElementById('chromm_image').style.opacity = '0'; }
+                  chromm_stop();
+                </script>
+              </td>
+              <td style="padding:8px;width:70%;vertical-align:middle">
+                <a href="https://nstar1125.github.io/chromm/">
+                  <span class="papertitle">HARMONI: Aligning Human and Scene Priors for Multi-View 4D Reconstruction</span>
+                </a>
+                <br>
+                <strong><u>Sangmin Kim</u></strong>,
+                Minhyuk Hwang,
+                Geonho Cha,
+                Dongyoon Wee,
+                Jaesik Park
+                <br>
+                <p style="margin:8px 0 0 0"></p>
+                <em>arXiv, 2026</em>
+                <br>
+                <p style="margin:8px 0 0 0"></p>
+                <a href="https://nstar1125.github.io/chromm/">project</a>
+                /
+                <a href="https://arxiv.org/abs/2603.12789">paper</a>
+                /
+                <a href="https://github.com/nstar1125/CHROMM_RELEASE">code</a>
+                <p></p>
+              </td>
+            </tr>
+            
+            <tr>
+              <td style="padding:16px;width:30%;vertical-align:middle">
+                <span class="thumb" style="width:200px;">
+                  <img src="images/phase_dgs.jpg" alt="">
+                </span>
+              </td>
+              <td style="padding:8px;width:70%;vertical-align:middle">
+                <a href="">
+                  <span class="papertitle">Phase-DGS: Phase-Guided Dynamic Gaussian Splatting from Unsynchronized Multi-view Video</span>
+                </a>
+                <br>
+                Hosung Jeon,
+                Jun Young Jeong,
+                Sangwoon Kwak,
+                Joonsoo Kim,
+                <strong><u>Sangmin Kim</u></strong>,
+                Jaesik Park,
+                Won-Sik Cheong, 
+                Hyon-Gon Choo
+                <br>
+                <p style="margin:8px 0 0 0"></p>
+                <em>NeurIPS, 2026</em>
+                <br>
+                <p style="margin:8px 0 0 0"></p>
+                <!-- <a href="">project</a> -->
+                <!-- / -->
+                <a href="">paper</a>
+                <!-- / -->
+                <!-- <a href="">code</a> -->
+                <p></p>
+              </td>
+            </tr>
+
+            <tr onmouseout="omg4_stop()" onmouseover="omg4_start()">
+              <td style="padding:16px;width:30%;vertical-align:middle">
+                <span class="thumb" style="width:200px;">
+                  <img src="images/omg4.png" alt="">
+                  <span class="overlay" id="omg4_image">
+                    <video muted autoplay loop playsinline>
+                      <source src="images/omg4.mp4" type="video/mp4">
+                    </video>
+                  </span>
+                </span>
+                <script>
+                  function omg4_start(){ document.getElementById('omg4_image').style.opacity = '1'; }
+                  function omg4_stop(){  document.getElementById('omg4_image').style.opacity = '0'; }
+                  omg4_stop();
+                </script>
+              </td>
+              <td style="padding:8px;width:70%;vertical-align:middle">
+                <a href="https://minshirley.github.io/OMG4/">
+                  <span class="papertitle">Optimized Minimal 4D Gaussian Splatting</span>
+                </a>
+                <br>
+                Minseo Lee*,
+                Byeonghyeon Lee*,
+                Lucas Yunkyu Lee,
+                Eunsoo Lee,
+                <strong><u>Sangmin Kim</u></strong>,
+                Seunghyeon Song,
+                Joo Chan Lee,
+                Jong Hwan Ko,
+                Jaesik Park,
+                Eunbyung Park
+                <br>
+                <p style="margin:8px 0 0 0"></p>
+                <em>NeurIPS, 2026</em>
+                <br>
+                <p style="margin:8px 0 0 0"></p>
+                <a href="https://minshirley.github.io/OMG4/">project</a>
+                /
+                <a href="https://arxiv.org/abs/2510.03857">paper</a>
+                /
+                <a href="https://github.com/MinShirley/OMG4">code</a>
+                <p></p>
+              </td>
+            </tr>
+
             <tr onmouseout="trigs_stop()" onmouseover="trigs_start()">
               <td style="padding:16px;width:30%;vertical-align:middle">
                 <span class="thumb" style="width:200px;">
@@ -192,7 +314,7 @@
               </td>
             </tr>
             
-            <tr>
+            <!-- <tr>
               <td style="padding:16px;width:30%;vertical-align:middle">
                 <span class="thumb" style="width:200px;">
                   <img src="images/ftgs2.jpg" alt="">
@@ -220,7 +342,7 @@
                 <a href="https://github.com/SNU-VGILab/FreeTimeGSPlusPlus">code</a>
                 <p></p>
               </td>
-            </tr>
+            </tr> -->
             
             <tr onmouseout="studiorecon_stop()" onmouseover="studiorecon_start()" style="background-color:#fff176">
               <td style="padding:16px;width:30%;vertical-align:middle">
@@ -254,55 +376,15 @@
                 <br>
                 <p style="margin:8px 0 0 0"></p>
                 <a href="https://sisyphm.github.io/studiorecon-page/">project</a>
-                <!-- / -->
-                <!-- <a href="">paper</a> -->
-                <!-- / -->
-                <!-- <a href="">code</a> -->
+                /
+                <a href="https://arxiv.org/pdf/2607.09125">paper</a>
+                /
+                <a href="https://github.com/sisyphm/StudioRecon">code</a>
                 <p></p>
               </td>
             </tr>
 
-            <tr onmouseout="chromm_stop()" onmouseover="chromm_start()" style="background-color:#fff176">
-              <td style="padding:16px;width:30%;vertical-align:middle">
-                <span class="thumb" style="width:200px;">
-                  <img src="images/chromm.jpg" alt="">
-                  <span class="overlay" id="chromm_image">
-                    <video muted autoplay loop playsinline>
-                      <source src="images/chromm.mp4" type="video/mp4">
-                    </video>
-                  </span>
-                </span>
-                <script>
-                  function chromm_start(){ document.getElementById('chromm_image').style.opacity = '1'; }
-                  function chromm_stop(){  document.getElementById('chromm_image').style.opacity = '0'; }
-                  chromm_stop();
-                </script>
-              </td>
-              <td style="padding:8px;width:70%;vertical-align:middle">
-                <a href="https://nstar1125.github.io/chromm/">
-                  <span class="papertitle">Coherent Human-Scene Reconstruction from Multi-Person Multi-View Video in a Single Pass</span>
-                </a>
-                <br>
-                <strong><u>Sangmin Kim</u></strong>,
-                Minhyuk Hwang,
-                Geonho Cha,
-                Dongyoon Wee,
-                Jaesik Park
-                <br>
-                <p style="margin:8px 0 0 0"></p>
-                <em>arXiv, 2026</em>
-                <br>
-                <p style="margin:8px 0 0 0"></p>
-                <a href="https://nstar1125.github.io/chromm/">project</a>
-                /
-                <a href="https://arxiv.org/abs/2603.12789">paper</a>
-                /
-                <a href="https://github.com/nstar1125/CHROMM_RELEASE">code</a>
-                <p></p>
-              </td>
-            </tr>
-
-            <tr>
+            <!-- <tr>
               <td style="padding:16px;width:30%;vertical-align:middle">
                 <span class="thumb" style="width:200px;">
                   <img src="images/seal-pose.jpg" alt="">
@@ -327,52 +409,7 @@
                 <a href="https://arxiv.org/abs/2602.20051">paper</a>
                 <p></p>
               </td>
-            </tr>
-
-            <tr onmouseout="omg4_stop()" onmouseover="omg4_start()">
-              <td style="padding:16px;width:30%;vertical-align:middle">
-                <span class="thumb" style="width:200px;">
-                  <img src="images/omg4.png" alt="">
-                  <span class="overlay" id="omg4_image">
-                    <video muted autoplay loop playsinline>
-                      <source src="images/omg4.mp4" type="video/mp4">
-                    </video>
-                  </span>
-                </span>
-                <script>
-                  function omg4_start(){ document.getElementById('omg4_image').style.opacity = '1'; }
-                  function omg4_stop(){  document.getElementById('omg4_image').style.opacity = '0'; }
-                  omg4_stop();
-                </script>
-              </td>
-              <td style="padding:8px;width:70%;vertical-align:middle">
-                <a href="https://minshirley.github.io/OMG4/">
-                  <span class="papertitle">Optimized Minimal 4D Gaussian Splatting</span>
-                </a>
-                <br>
-                Minseo Lee*,
-                Byeonghyeon Lee*,
-                Lucas Yunkyu Lee,
-                Eunsoo Lee,
-                <strong><u>Sangmin Kim</u></strong>,
-                Seunghyeon Song,
-                Joo Chan Lee,
-                Jong Hwan Ko,
-                Jaesik Park,
-                Eunbyung Park
-                <br>
-                <p style="margin:8px 0 0 0"></p>
-                <em>arXiv, 2025</em>
-                <br>
-                <p style="margin:8px 0 0 0"></p>
-                <a href="https://minshirley.github.io/OMG4/">project</a>
-                /
-                <a href="https://arxiv.org/abs/2510.03857">paper</a>
-                /
-                <a href="https://github.com/MinShirley/OMG4">code</a>
-                <p></p>
-              </td>
-            </tr>
+            </tr> -->
 
             <tr onmouseout="sm3r_stop()" onmouseover="sm3r_start()" style="background-color:#fff176">
               <td style="padding:16px;width:30%;vertical-align:middle">

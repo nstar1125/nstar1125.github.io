@@ -11,7 +11,7 @@ const slider = document.getElementById('viewer-slider');
 const frameLabel = document.getElementById('viewer-frame-label');
 const playBtn = document.getElementById('viewer-play-btn');
 
-const TOTAL_FRAMES = 30;
+const TOTAL_FRAMES = 10;
 const FPS = 10;
 let currentFrame = 0;
 let isPlaying = false;
@@ -61,7 +61,7 @@ function padFrame(n) {
 let loadedCount = 0;
 
 for (let i = 0; i < TOTAL_FRAMES; i++) {
-  const url = './static/data/fencing/frame_' + padFrame(i) + '.glb';
+  const url = './static/data/egobody/frame_' + padFrame(i) + '.glb';
   loader.load(
     url,
     (gltf) => {
@@ -99,7 +99,7 @@ for (let i = 0; i < TOTAL_FRAMES; i++) {
         const maxDim = Math.max(size.x, size.y, size.z);
         const dist = maxDim / (2 * Math.tan((camera.fov * Math.PI) / 360));
         controls.target.copy(center);
-        camera.position.set(center.x, center.y + 2, center.z - dist * 1.2);
+        camera.position.set(center.x, center.y + 2, center.z + dist * 1.2);  // look from the +z side (the -z side faces a wall)
         controls.update();
       }
     },

@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://nstar1125.github.io/chromm/sitemap.xml

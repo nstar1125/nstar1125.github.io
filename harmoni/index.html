@@ -242,11 +242,11 @@
             However, combining independently trained human and scene priors often produces misalignment in scale and depth.
             We observe that the two priors have complementary strengths.
             The scene prior provides consistent depth but approximate scale, while the human prior provides fixed body scale but less reliable depth.
-            Motivated by this observation, we present HARMONI, a feed-forward framework that reconstructs cameras, scene, and humans with identities
+            Motivated by this observation, we present <strong>HARMONI</strong>, a feed-forward framework that reconstructs cameras, scene, and humans with identities
             from monocular or multi-view video without test-time optimization.
-            We introduce bidirectional anchoring, in which scene depth guides human placement, while human keypoints calibrate the scene scale to match the human body.
+            We introduce <em>bidirectional anchoring</em>, in which scene depth guides human placement, while human keypoints calibrate the scene scale to match the human body.
             While most existing approaches target monocular inputs and multi-view methods rely on optimization or re-identification, our approach naturally extends to multiple views.
-            Building on bidirectional anchoring, we introduce a multi-view fusion module that merges per-view estimates,
+            Building on bidirectional anchoring, we introduce a <em>multi-view fusion module</em> that merges per-view estimates,
             while reducing the influence of unreliable views and visually similar individuals.
             Experiments show that our framework outperforms previous human-scene methods in global motion and multi-view pose estimation by up to 28% and 64%,
             while running 28&times; faster than optimization-based approaches.
